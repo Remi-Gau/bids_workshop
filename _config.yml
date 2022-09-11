@@ -1,1 +1,15 @@
 theme: minima
+
+author:
+  name: Remi Gau
+  email: remi.gau@uclouvain.be
+description: > # this means to ignore newlines 
+  Resources for BIDS workshop
+
+minima:
+
+  # generate social links in footer
+  social_links:
+    twitter: RemiGau
+    github:  Remi-Gau
+    linkedin: remi-gau-bb73141
