@@ -1,3 +1,16 @@
+
+- [Content](#content)
+    - ["Theory": The BIDS data management principles](#theory-the-bids-data-management-principles)
+    - [BIDS conversion by hand](#bids-conversion-by-hand)
+    - [Automated BIDS conversion](#automated-bids-conversion)
+    - [Using BIDS apps (like fmriprep)](#using-bids-apps-like-fmriprep)
+- [Pre-requisites](#pre-requisites)
+    - [Software to install](#software-to-install)
+- [Notes](#notes)
+- [Not covered](#not-covered)
+
+<br>
+
 The
 [brain imaging data structure (BIDS)](https://bids-specification.readthedocs.io/en/latest/)
 is fast becoming the main standard to organize raw neuroimaging data.
