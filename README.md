@@ -1,5 +1,3 @@
-# BIDS workshop
-
 The
 [brain imaging data structure (BIDS)](https://bids-specification.readthedocs.io/en/latest/)
 is fast becoming the main standard to organize raw neuroimaging data.
