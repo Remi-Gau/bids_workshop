@@ -3,10 +3,10 @@
     - [BIDS conversion by hand](#bids-conversion-by-hand)
     - [Automated BIDS conversion](#automated-bids-conversion)
     - [Using BIDS apps (like fmriprep)](#using-bids-apps-like-fmriprep)
-- [Pre-requisites](#pre-requisites)
-    - [Software to install](#software-to-install)
 - [Notes](#notes)
 - [Not covered](#not-covered)
+- [Pre-requisites](#pre-requisites)
+    - [Software to install](#software-to-install)
 
 <br>
 
@@ -50,8 +50,21 @@ by hand. So learning to use a bids converters should be the next logical step.
 To wrap up we will spend a bit of time on how to use BIDS applications on the
 dataset we have created.
 
+## Notes
+
+This workshop is mostly geared for the MRI part of BIDS but many principles of
+BIDS apply to all imaging modalities.
+
 We will finish the workshop with a "ask me anything about BIDS" session where
 you can come with more specific questions as they relate to your use case.
+
+## Not covered
+
+The follow issues are be covered in this workshop:
+
+- Where to store data
+- Ethical issues around data sharing (notably GDPR)
+- Data version control (for example with Datalad)
 
 ## Pre-requisites
 
@@ -97,19 +110,6 @@ starts.
   ```bash
   docker pull nipreps/fmriprep:latest
   ```
-
-## Notes
-
-This workshop is mostly geared for the MRI part of BIDS but many principles of
-BIDS apply to all imaging modalities.
-
-## Not covered
-
-The follow issues are be covered in this workshop:
-
-- Where to store data
-- Ethical issues around data sharing (notably GDPR)
-- Data version control (for example with Datalad)
 
 <footer>
     <hr>
