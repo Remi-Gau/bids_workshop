@@ -1,4 +1,3 @@
-
 - [Content](#content)
     - ["Theory": The BIDS data management principles](#theory-the-bids-data-management-principles)
     - [BIDS conversion by hand](#bids-conversion-by-hand)
@@ -59,7 +58,7 @@ you can come with more specific questions as they relate to your use case.
 - Coding experience: none
 - Prior experience with neuroimaging data: none
 - Data: feel free to bring your own dataset to work on but if you do not have
-  data, some will be provided.
+  data, some data is provided.
 - Data type
   - fMRI and resting state
   - Anat
@@ -68,11 +67,17 @@ you can come with more specific questions as they relate to your use case.
 
 ### Software to install
 
+Here is a list of softwares, you will need to install to follow the workshop.
+
+If you have troubles when installing any of these, please contact me before the
+workshop and come to the "open-office" that will happen before the workshop
+starts.
+
 - Install [Visual studio code](https://code.visualstudio.com/) as your code
   editor
 
 - Python: if you have never used Python before, install it with
-[miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
+  [miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
 
 - Install
   [Dcm2niix](https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage#Download)
@@ -81,17 +86,17 @@ you can come with more specific questions as they relate to your use case.
 
 - Install [Docker Desktop](https://www.docker.com/):
 
-    - download the [MRIQC](https://mriqc.readthedocs.io/en/latest/) docker image
+  - download the [MRIQC](https://mriqc.readthedocs.io/en/latest/) docker image
 
-    ```bash
-    docker pull nipreps/mriqc:latest
-    ```
+  ```bash
+  docker pull nipreps/mriqc:latest
+  ```
 
-    - download the [fmriprep](https://fmriprep.org/en/stable/) docker image:
+  - download the [fmriprep](https://fmriprep.org/en/stable/) docker image:
 
-    ```bash
-    docker pull nipreps/fmriprep:latest
-    ```
+  ```bash
+  docker pull nipreps/fmriprep:latest
+  ```
 
 ## Notes
 
