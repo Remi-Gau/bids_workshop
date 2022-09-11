@@ -3,8 +3,8 @@ theme: minima
 author:
   name: Remi Gau
   email: remi.gau@uclouvain.be
-description: > # this means to ignore newlines 
-  Resources for BIDS workshop
+
+description: Resources for BIDS workshop
 
 minima:
 
