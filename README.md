@@ -71,31 +71,27 @@ you can come with more specific questions as they relate to your use case.
 - Install [Visual studio code](https://code.visualstudio.com/) as your code
   editor
 
-- Python
-
-If you have never used Python before, install it with
+- Python: if you have never used Python before, install it with
 [miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
 
 - Install
   [Dcm2niix](https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage#Download)
 
-- install the [BIDScoin converter](https://bidscoin.readthedocs.io/en/stable/)
+- Install the [BIDScoin converter](https://bidscoin.readthedocs.io/en/stable/)
 
-- [Docker](https://www.docker.com/)
+- Install [Docker Desktop](https://www.docker.com/):
 
-Install **Docker Desktop**
+    - download the [MRIQC](https://mriqc.readthedocs.io/en/latest/) docker image
 
-- download the [MRIQC](https://mriqc.readthedocs.io/en/latest/) docker image
+    ```bash
+    docker pull nipreps/mriqc:latest
+    ```
 
-```bash
-docker pull nipreps/mriqc:latest
-```
+    - download the [fmriprep](https://fmriprep.org/en/stable/) docker image:
 
-- download the [fmriprep](https://fmriprep.org/en/stable/) docker image:
-
-```bash
-docker pull nipreps/fmriprep:latest
-```
+    ```bash
+    docker pull nipreps/fmriprep:latest
+    ```
 
 ## Notes
 
