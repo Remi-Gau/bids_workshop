@@ -1,1 +1,9 @@
-# bids_workshop_2020_09_27
+# BIDS workshop
+
+## Prequisites
+
+### Installation
+
+### Cookbook
+
+[here](02-cookbook.md)
