@@ -1,7 +1,5 @@
-<<<<<<< Updated upstream
 # BIDS workshop
 
-# Abstract
 =======
 - [Content](#content)
   - ["Theory": The BIDS data management principles](#theory-the-bids-data-management-principles)
@@ -14,7 +12,8 @@
   - [Software to install](#software-to-install)
 
 <br>
->>>>>>> Stashed changes
+
+# Abstract
 
 The
 [brain imaging data structure (BIDS)](https://bids-specification.readthedocs.io/en/latest/)
@@ -79,7 +78,11 @@ you can come with more specific questions as they relate to your use case.
 If you have never used Python before, install it with
 [miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
 
-  - `Register Miniconda as my default python`
+When installing if you are prompted, select `Register Miniconda as my default python`.
+
+In Windows if you want to start conda and easily run python from your Powershell: follow this procedure
+
+https://stackoverflow.com/a/67996662
 
 - Install
   [Dcm2niix](https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage#Download)
@@ -88,9 +91,14 @@ If you have never used Python before, install it with
 
 - [Docker](https://www.docker.com/)
 
-Install **Docker Desktop**
+For Windows:
+
+- Install **Docker Desktop**
+- Launch Docker desktop and run the first part of the tutorial ("clone a repository") to make sure everything was correctly installed.
 
   - download the [MRIQC](https://mriqc.readthedocs.io/en/latest/) docker image
+
+Open a terminal (or a powershell for Windows) and type the command
 
 ```bash
 docker pull nipreps/mriqc:latest
