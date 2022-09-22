@@ -7,7 +7,12 @@
 - [Not covered](#not-covered)
 - [Pre-requisites](#pre-requisites)
 - [Softwares to install](#softwares-to-install)
-  - [VSCode extensions](#vscode-extensions)
+  - [Visual studio code](#visual-studio-code)
+  - [Python](#python)
+  - [Dcm2niix](#dcm2niix)
+  - [BIDScoin](#bidscoin)
+  - [Docker](#docker)
+  - [Optional: VSCode extensions](#optional-vscode-extensions)
 
 <br>
 
@@ -93,12 +98,16 @@ page dedicated to your operating system:
 - [MacOs](./troubleshooting_install/macos.md)
 - [Linux](./troubleshooting_install/linux.md)
 
-1. Install [Visual studio code](https://code.visualstudio.com/) as your code
-   editor.
+### Visual studio code
 
-2. Python: if you have never used Python before, install it with the installer
-   adapted to your system (32 vs 64 bit, Apple M1 vs Intel...)
-   [miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
+Install [Visual studio code](https://code.visualstudio.com/) as your code
+editor.
+
+### Python
+
+If you have never used Python before, install it with the installer adapted to
+your system (32 vs 64 bit, Apple M1 vs Intel...)
+[miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
 
 - For Windows, you should only have to run the `.exe` installer.
 - For MacOs, you can try to simply use the `.pkg` installer adapted for your
@@ -107,8 +116,10 @@ page dedicated to your operating system:
 - For Linux, you should use the bash installer as described
   [here](./troubleshooting_install/linux.md#python).
 
-3. Install the DICOM to Nifti converter:
-   [Dcm2niix](https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage#Download)
+### Dcm2niix
+
+Install the DICOM to Nifti converter:
+[Dcm2niix](https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage#Download)
 
 If installing with
 [the correct installer for your operating system](https://github.com/rordenlab/dcm2niix/releases)
@@ -116,7 +127,9 @@ does not work, try installing
 [MRIcroGL](https://www.nitrc.org/frs/?group_id=889) that should ship with
 `Dcm2niix`.
 
-4. Install the [BIDScoin converter](https://bidscoin.readthedocs.io/en/stable/)
+### BIDScoin
+
+Install the [BIDScoin converter](https://bidscoin.readthedocs.io/en/stable/)
 
 If you have installed Miniconda properly, you should only need to open a
 Terminal (for Linux and MacOS) or an Anaconda Powershell Prompt (for Windows)
@@ -126,7 +139,9 @@ and type:
 pip install bidscoin
 ```
 
-5. Install [Docker Desktop](https://www.docker.com/)
+### Docker
+
+Install [Docker Desktop](https://www.docker.com/)
 
 To check that things are properly installed, open a Terminal (for Linux and
 MacOS) or an Anaconda Powershell Prompt (for Windows) and type the following to
@@ -160,7 +175,7 @@ docker pull nipreps/fmriprep:latest
 Note that to run fmriprep, you will also need a license for Freesurfer that you
 can get for free here: https://surfer.nmr.mgh.harvard.edu/registration.html.
 
-### VSCode extensions
+### Optional: VSCode extensions
 
 Those extensions are not needed but may help you when dealing with python code
 or json files in general.
