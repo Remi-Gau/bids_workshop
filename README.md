@@ -93,32 +93,30 @@ page dedicated to your operating system:
 - [MacOs](./troubleshooting_install/macos.md)
 - [Linux](./troubleshooting_install/linux.md)
 
-<br>
+1. Install [Visual studio code](https://code.visualstudio.com/) as your code
+   editor.
 
-- Install [Visual studio code](https://code.visualstudio.com/) as your code
-  editor.
+2. Python: if you have never used Python before, install it with the installer
+   adapted to your system (32 vs 64 bit, Apple M1 vs Intel...)
+   [miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
 
-<br>
+- For Windows, you should only have to run the `.exe` installer.
+- For MacOs, you can try to simply use the `.pkg` installer adapted for your
+  computer. If that does not work try the method described
+  [here](./troubleshooting_install/macos.md#python).
+- For Linux, you should use the bash installer as described
+  [here](./troubleshooting_install/linux.md#python).
 
-- Python: if you have never used Python before, install it with the installer
-  adapted to your system (32 vs 64 bit, Apple M1 vs Intel...)
-  [miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
+3. Install the DICOM to Nifti converter:
+   [Dcm2niix](https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage#Download)
 
-  - For Windows, you should only have to run the `.exe` installer.
-  - For MacOs, you can try to simply use the `.pkg` installer adapted for your
-    computer. If that does not work try the method described
-    [here](./troubleshooting_install/macos.md#python).
-  - For Linux, you should use the bash installer as described
-    [here](./troubleshooting_install/linux.md#python).
+If installing with
+[the correct installer for your operating system](https://github.com/rordenlab/dcm2niix/releases)
+does not work, try installing
+[MRIcroGL](https://www.nitrc.org/frs/?group_id=889) that should ship with
+`Dcm2niix`.
 
-<br>
-
-- Install
-  [Dcm2niix](https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage#Download)
-
-<br>
-
-- Install the [BIDScoin converter](https://bidscoin.readthedocs.io/en/stable/)
+4. Install the [BIDScoin converter](https://bidscoin.readthedocs.io/en/stable/)
 
 If you have installed Miniconda properly, you should only need to open a
 Terminal (for Linux and MacOS) or an Anaconda Powershell Prompt (for Windows)
@@ -128,9 +126,7 @@ and type:
 pip install bidscoin
 ```
 
-<br>
-
-- Install [Docker Desktop](https://www.docker.com/)
+5. Install [Docker Desktop](https://www.docker.com/)
 
 To check that things are properly installed, open a Terminal (for Linux and
 MacOS) or an Anaconda Powershell Prompt (for Windows) and type the following to
