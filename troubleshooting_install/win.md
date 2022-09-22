@@ -7,8 +7,22 @@
 1. Leave all the defaults during the installation with the following exception:
    - Please make sure the box labelled
      `Register Code as an editor for supported file types` is selected
-<!--
-## Windows Subsystem for Linux (WSL)
+
+## Python
+
+1. Get the correct `.exe` installer for your system (32 or 64 bit) from
+   [here](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
+1. Double click on the installer to launch it.
+1. Accept the license agreement when it is displayed.
+1. The installation will inform you that it is going to install into a default
+   directory. Leave this default.
+1. You can now remove the installer.
+
+## The hard way
+
+If you are encountering issues running
+
+### Windows Subsystem for Linux (WSL)
 
 1. Search for `Windows Powershell` in your applications; right click and select
    `Run as administrator`. Select `Yes` on the prompt that appears asking if you
@@ -39,45 +53,11 @@
    application.
 
 (The above step-by-step WSL instructions are distilled from
-[here](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and
-[here](https://docs.microsoft.com/en-us/windows/wsl/initialize-distro). If you
-have questions during the installation procedure those resources may have
-answers!)
+[here](https://learn.microsoft.com/en-us/windows/wsl/install). If you have
+questions during the installation procedure those resources may have answers!)
 
 From this point on whenever the instructions specify to "open a terminal" please
 assume you are supposed to open the Ubuntu application.
-
-### Python
-
-1. Open a new terminal and type the following lines (separately) into the
-   terminal, pressing `Enter` after each one:
-
-```bash
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
-```
-
-1. A license agreement will be displayed and the bottom of the terminal will
-   read `--More--`. Press `Enter` or the space bar until you are prompted with
-   "Do you accept the license terms? [yes|no]." Type `yes` and then press
-   `Enter`
-1. The installation script will inform you that it is going to install into a
-   default directory (e.g., `/home/$USER/miniconda3`). Leave this default and
-   press `Enter`.
-1. When you are asked "Do you wish the installer to initialize Miniconda3 by
-   running conda init? [yes|no]," type `yes` and press `Enter`. Exit the
-   terminal once the installation has finished.
-1. Re-open the Ubuntu application. Type `which python` into the terminal and it
-   should return a path (e.g., `/home/$USER/miniconda3/bin/python`).
-   - If you do not see a path like this then please try typing `conda init`,
-     closing your terminal, and repeating this step. If your issue is still not
-     resolved skip the following step and contact an instructor on the
-     #help-installation channel on the BHS Slack.
-1. Type the following to remove the installation script that was downloaded:
-
-```bash
-rm ./Miniconda3-latest-Linux-x86_64.sh
-```
 
 ### Docker
 
@@ -161,8 +141,8 @@ Instructions for installing Docker Toolbox for Windows:
    username), and `tcp=xxx.xxx.xx.xxx:xxx` will be a series of numbers. If you
    don't get this output then something has gone wrong. Please make sure you
    were able to run the `docker run hello-world` command, above. If you were and
-   you still don't receive this output, please contact one of the instructors on
-   the #help-installation channel on the BHS Slack.
+   you still don't receive this output, please contact and contact Rémi so he
+   can help you directly.
 
 1. You will use the the outputs of the above command to modify the commands
    below before running them in the terminal. First, take the numbers printed in
@@ -194,4 +174,4 @@ re-opening the "Docker Quickstart" application.
 [here](https://docs.docker.com/toolbox/toolbox_install_windows/) and
 [here](https://medium.com/@joaoh82/setting-up-docker-toolbox-for-windows-home-10-and-wsl-to-work-perfectly-2fd34ed41d51).
 If you have questions during the installation procedure please check those links
-for potential answers!) -->
+for potential answers!)

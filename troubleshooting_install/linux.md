@@ -1,6 +1,6 @@
-## Linux
+# Linux
 
-### VSCode
+## VSCode
 
 Go to the [visual studio code website](https://code.visualstudio.com/) and click
 the download button for either the `.deb` (Ubuntu, Debian) or the `.rpm`
@@ -9,7 +9,7 @@ the download button for either the `.deb` (Ubuntu, Debian) or the `.rpm`
 Double-click the downloaded file to install VSCode. (You may be prompted to type
 your administrator password during the install).
 
-### Python
+## Python
 
 1. Open a new terminal and type the following lines (separately) into the
    terminal, pressing `Enter` after each one:
@@ -29,19 +29,20 @@ bash Miniconda3-latest-Linux-x86_64.sh
 1. When you are asked "Do you wish the installer to initialize Miniconda3 by
    running conda init? [yes|no]," type `yes` and press `Enter`. Exit the
    terminal once the installation has finished.
-1. Re-open a new terminal. Type `which python` into the terminal and it should
-   return a path (e.g., `/home/$USER/miniconda3/bin/python`).
+1. Re-open a new terminal. You should also see a `(base)` at the beginning of
+   your prompt on your terminal.Type `which python` into the terminal and it
+   should return a path (e.g., `/home/$USER/miniconda3/bin/python`).
    - If you do not see a path like this then please try typing `conda init`,
      closing your terminal, and repeating this step. If your issue is still not
-     resolved skip the following step and contact an instructor on the
-     #help-installation channel of the BHS Slack.
+     resolved skip the following step and contact Rémi so he can help you
+     directly.
 1. Type the following to remove the installation script that was downloaded:
 
 ```bash
 rm ./Miniconda3-latest-Linux-x86_64.sh
 ```
 
-### Docker
+## Docker
 
 1. You will be following different instructions depending on your distro
    ([Ubuntu](https://docs.docker.com/engine/install/ubuntu/),

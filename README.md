@@ -80,36 +80,11 @@ The follow issues are be covered in this workshop:
 
 ## Softwares to install
 
-Here is a list of softwares, you will need to install to follow the workshop.
+Below is a list of softwares, you will need to install to follow the workshop.
 
 If you have troubles when installing any of these, please contact me before the
 workshop and come to the "open-office" that will happen before the workshop`
 starts.
-
-- Install [Visual studio code](https://code.visualstudio.com/) as your code
-  editor
-
-- Python: if you have never used Python before, install it with
-  [miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
-
-- Install
-  [Dcm2niix](https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage#Download)
-
-- Install the [BIDScoin converter](https://bidscoin.readthedocs.io/en/stable/)
-
-- Install [Docker Desktop](https://www.docker.com/):
-
-  - download the [MRIQC](https://mriqc.readthedocs.io/en/latest/) docker image
-
-```bash
-docker pull nipreps/mriqc:latest
-```
-
-- download the [fmriprep](https://fmriprep.org/en/stable/) docker image:
-
-```bash
-docker pull nipreps/fmriprep:latest
-```
 
 For more details and trouble shooting eventual installation problems, check the
 page dedicated to your operating system:
@@ -118,10 +93,81 @@ page dedicated to your operating system:
 - [MacOs](./troubleshooting_install/macos.md)
 - [Linux](./troubleshooting_install/linux.md)
 
+<br>
+
+- Install [Visual studio code](https://code.visualstudio.com/) as your code
+  editor.
+
+<br>
+
+- Python: if you have never used Python before, install it with the installer
+  adapted to your system (32 vs 64 bit, Apple M1 vs Intel...)
+  [miniconda](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
+
+  - For Windows, you should only have to run the `.exe` installer.
+  - For MacOs, you can try to simply use the `.pkg` installer adapted for your
+    computer. If that does not work try the method described
+    [here](./troubleshooting_install/macos.md#python).
+  - For Linux, you should use the bash installer as described
+    [here](./troubleshooting_install/linux.md#python).
+
+<br>
+
+- Install
+  [Dcm2niix](https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage#Download)
+
+<br>
+
+- Install the [BIDScoin converter](https://bidscoin.readthedocs.io/en/stable/)
+
+If you have installed Miniconda properly, you should only need to open a
+Terminal (for Linux and MacOS) or an Anaconda Powershell Prompt (for Windows)
+and type:
+
+```bash
+pip install bidscoin
+```
+
+<br>
+
+- Install [Docker Desktop](https://www.docker.com/)
+
+To check that things are properly installed, open a Terminal (for Linux and
+MacOS) or an Anaconda Powershell Prompt (for Windows) and type the following to
+make sure everything works:
+
+```bash
+docker run hello-world
+```
+
+A brief introductory message should then be printed to the screen.
+
+Once you have done this, you can download the "images" of 2 bids app: be careful
+that they may take quite a bit of space on your hard drive, so make sure you
+have enough free space.
+
+- download the latest version of the
+  [MRIQC](https://mriqc.readthedocs.io/en/latest/) docker image for quality
+  control.
+
+```bash
+docker pull nipreps/mriqc:latest
+```
+
+- download the latest version of the [fmriprep](https://fmriprep.org/en/stable/)
+  docker image for preprocessing.
+
+```bash
+docker pull nipreps/fmriprep:latest
+```
+
+Note that to run fmriprep, you will also need a license for Freesurfer that you
+can get for free here: https://surfer.nmr.mgh.harvard.edu/registration.html.
+
 ### VSCode extensions
 
 Those extensions are not needed but may help you when dealing with python code
-or json files.
+or json files in general.
 
 1. Open Visual studio code
 2. Press `Ctrl/Cmd+Shift+X` to open the extensions side bar.
@@ -130,8 +176,6 @@ or json files.
    that appears. (The author listed for all of these extensions should be
    `Microsoft`.)
    - `Python` (n.b., you will need to reload VSCode after installing this)
-   - `Live Share` (n.b., you may need to press "Ctrl/Cmd+Shift+P" and type
-     "install extensions" again after installing this)
    - `json`
 
 <footer>
