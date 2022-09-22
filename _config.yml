@@ -1,4 +1,4 @@
 title: BIDS workshop
-theme: minima
-
-description: Resources for BIDS workshop
+show_downloads: false
+theme: jekyll-theme-slate
+description: resources for a BIDS workshop

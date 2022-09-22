@@ -1,9 +1,3 @@
-<!-- TODO
-- conversion script for MEG events
-- link to BEPs have a look and contribute
-- use BEPs to organize yet unsupported data
--->
-
 <h1 style="width: 120%"> Preparing a BIDS dataset by hand and from scratch </h1>
 
 <center>
