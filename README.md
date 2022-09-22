@@ -1,12 +1,12 @@
 - [Content](#content)
-    - ["Theory": The BIDS data management principles](#theory-the-bids-data-management-principles)
-    - [BIDS conversion by hand](#bids-conversion-by-hand)
-    - [Automated BIDS conversion](#automated-bids-conversion)
-    - [Using BIDS apps (like fmriprep)](#using-bids-apps-like-fmriprep)
+  - ["Theory": The BIDS data management principles](#theory-the-bids-data-management-principles)
+  - [BIDS conversion by hand](#bids-conversion-by-hand)
+  - [Automated BIDS conversion](#automated-bids-conversion)
+  - [Using BIDS apps](#using-bids-apps)
 - [Notes](#notes)
 - [Not covered](#not-covered)
 - [Pre-requisites](#pre-requisites)
-    - [Software to install](#software-to-install)
+- [Softwares to install](#softwares-to-install)
 
 <br>
 
@@ -31,8 +31,8 @@ This workshop is divided in 4 parts.
 ### "Theory": The BIDS data management principles
 
 Remembering and following a rule is always easier when you understand why the
-rule was put in place: so we will spend a bit of time explaining the reason why
-BIDS is structured the way it is.
+rule was put in place: this first part explains some of the reasons why BIDS is
+structured the way it is.
 
 ### BIDS conversion by hand
 
@@ -45,10 +45,9 @@ helps better understand "what data/information goes where".
 Converting large numbers files quickly becomes impractical and error prone when
 by hand. So learning to use a bids converters should be the next logical step.
 
-### Using BIDS apps (like fmriprep)
+### Using BIDS apps
 
-To wrap up we will spend a bit of time on how to use BIDS applications on the
-dataset we have created.
+To wrap up it is good use BIDS applications on the dataset we have created.
 
 ## Notes
 
@@ -78,7 +77,7 @@ The follow issues are be covered in this workshop:
   - DTI
   - Physio / eyetracking
 
-### Software to install
+## Softwares to install
 
 Here is a list of softwares, you will need to install to follow the workshop.
 
