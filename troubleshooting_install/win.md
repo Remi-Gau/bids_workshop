@@ -20,7 +20,9 @@
 
 ## The hard way
 
-If you are encountering issues running
+If you are encountering issues installing or running Docker, you may have to go
+via another way and use the Windows Subsystem for Linux that allows you to run
+Linux on your windows computer.
 
 ### Windows Subsystem for Linux (WSL)
 
