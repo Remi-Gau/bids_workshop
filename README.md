@@ -7,6 +7,7 @@
 - [Not covered](#not-covered)
 - [Pre-requisites](#pre-requisites)
 - [Softwares to install](#softwares-to-install)
+  - [VSCode extensions](#vscode-extensions)
 
 <br>
 
@@ -67,8 +68,8 @@ The follow issues are be covered in this workshop:
 
 ## Pre-requisites
 
-- Coding experience: none
-- Prior experience with neuroimaging data: none
+- Coding experience: `none`
+- Prior experience with neuroimaging data: `none`
 - Data: feel free to bring your own dataset to work on but if you do not have
   data, some data is provided.
 - Data type
@@ -82,7 +83,7 @@ The follow issues are be covered in this workshop:
 Here is a list of softwares, you will need to install to follow the workshop.
 
 If you have troubles when installing any of these, please contact me before the
-workshop and come to the "open-office" that will happen before the workshop
+workshop and come to the "open-office" that will happen before the workshop`
 starts.
 
 - Install [Visual studio code](https://code.visualstudio.com/) as your code
@@ -100,24 +101,42 @@ starts.
 
   - download the [MRIQC](https://mriqc.readthedocs.io/en/latest/) docker image
 
-  ```bash
-  docker pull nipreps/mriqc:latest
-  ```
+```bash
+docker pull nipreps/mriqc:latest
+```
 
-  - download the [fmriprep](https://fmriprep.org/en/stable/) docker image:
+- download the [fmriprep](https://fmriprep.org/en/stable/) docker image:
 
-  ```bash
-  docker pull nipreps/fmriprep:latest
-  ```
+```bash
+docker pull nipreps/fmriprep:latest
+```
+
+For more details and trouble shooting eventual installation problems, check the
+page dedicated to your operating system:
+
+- [Windows](./troubleshooting_install/win.md)
+- [MacOs](./troubleshooting_install/macos.md)
+- [Linux](./troubleshooting_install/linux.md)
+
+### VSCode extensions
+
+Those extensions are not needed but may help you when dealing with python code
+or json files.
+
+1. Open Visual studio code
+2. Press `Ctrl/Cmd+Shift+X` to open the extensions side bar.
+3. A new panel should appear on the side of the screen with a search bar. Search
+   for each of the following extensions and press `Install` for the first entry
+   that appears. (The author listed for all of these extensions should be
+   `Microsoft`.)
+   - `Python` (n.b., you will need to reload VSCode after installing this)
+   - `Live Share` (n.b., you may need to press "Ctrl/Cmd+Shift+P" and type
+     "install extensions" again after installing this)
+   - `json`
 
 <footer>
     <hr>
     <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
         <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
     </a>
-    <br />
-    This work is licensed under a
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-    Creative Commons Attribution 4.0 International License
-    </a>.
 </footer>
