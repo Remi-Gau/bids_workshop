@@ -143,8 +143,8 @@ docker run hello-world
 A brief introductory message should then be printed to the screen.
 
 Once you have done this, you can download the "images" of 2 bids app: be careful
-that they may take quite a bit of space on your hard drive, so make sure you
-have enough free space.
+that they may take quite a bit of space on your hard drive (about 12 Go each),
+so make sure you have enough free space.
 
 - download the latest version of the
   [MRIQC](https://mriqc.readthedocs.io/en/latest/) docker image for quality
