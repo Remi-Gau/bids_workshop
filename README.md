@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7110398.svg)](https://doi.org/10.5281/zenodo.7110398)
+
 - [Content](#content)
   - ["Theory": The BIDS data management principles](#theory-the-bids-data-management-principles)
   - [BIDS conversion by hand](#bids-conversion-by-hand)
