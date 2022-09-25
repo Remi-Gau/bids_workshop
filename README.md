@@ -1,4 +1,5 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7110398.svg)](https://doi.org/10.5281/zenodo.7110398)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 - [Content](#content)
   - ["Theory": The BIDS data management principles](#theory-the-bids-data-management-principles)
@@ -41,6 +42,8 @@ This workshop is divided in 4 parts.
 Remembering and following a rule is always easier when you understand why the
 rule was put in place: this first part explains some of the reasons why BIDS is
 structured the way it is.
+
+<!-- TODO add link to slides put on OSF -->
 
 ### BIDS conversion by hand
 
@@ -190,10 +193,3 @@ or json files in general.
    `Microsoft`.)
    - `Python` (n.b., you will need to reload VSCode after installing this)
    - `json`
-
-<footer>
-    <hr>
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
-    </a>
-</footer>

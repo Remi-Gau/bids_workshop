@@ -1,5 +1,7 @@
 <h1 style="width: 120%"> Preparing a BIDS dataset by hand and from scratch </h1>
 
+Adapted from the [BIDS cookbook](https://doi.org/10.5281/zenodo.7111042).
+
 <center>
 <h3 style="color:red;">
   ⚠️ Note that this is purely for learning purposes and it is NOT recommended to BIDSify real datasets by hand . ⚠️
@@ -21,7 +23,7 @@
 
 <center>
 <a href="https://twitter.com/RemiGau/status/1115513296134778880" target="_blank">
-    <img src="https://pbs.twimg.com/media/D3sYRfhWkAAlevT?format=jpg&name=small" width="500" />
+    <img src="https://pbs.twimg.com/media/D3sYRfhWkAAlevT?format=jpg&name=small" width="100%" />
 </a>
 </center>
 
@@ -65,8 +67,6 @@ Get them fresh from your local ~~market~~:
     Several common options top choose from:
     <ul>
         <li><a href="https://code.visualstudio.com" target="_blank">Visual Studio code</a></li>
-        <li><a href="https://www.sublimetext.com/" target="_blank">Sublime</a></li>
-        <li><a href="https://atom.io/" target="_blank">Atom</a></li>
         <li>Notepad does not really count.</li>
     </ul>
 </details>
@@ -308,6 +308,14 @@ sub-01\t34\tM</pre>
 - [BIDS validator](https://github.com/bids-standard/bids-validator)
 - [BIDS examples](https://github.com/bids-standard/bids-examples)
 
----
+<hr>
 
 <button><a href="#TOC">back to the top</a></button>
+
+
+<footer>
+    <hr>
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+    </a>
+</footer>
