@@ -157,37 +157,37 @@ You can get template content for those files from:
 JSON files are text files to store <code>key-value</code> pairs.
 
 <p>
-More information on how read and write JSON files is available on the
-<a  href="https://bids-standard.github.io/bids-starter-kit/folders_and_files/metadata.html#json-files"
-    target="_blank">
-  BIDS stater kit
-</a>
-and also
-<a  href="https://bids-standard.github.io/stats-models/json_101.html"
-    target="_blank">
-  on the bids stats model website.
-</a>
+  More information on how read and write JSON files is available on the
+  <a  href="https://bids-standard.github.io/bids-starter-kit/folders_and_files/metadata.html#json-files"
+      target="_blank">
+    BIDS stater kit
+  </a>
+  and also
+  <a  href="https://bids-standard.github.io/stats-models/json_101.html"
+      target="_blank">
+    on the bids stats model website.
+  </a>
 </p>
-
-<pre>JSON CONTENT EXAMPLE:
-
-{
-  "key": "value",
-  "key2": "value2",
-  "key3": {
-    "subkey1": "subvalue1"
-  },
-  "array": [ 1, 2, 3 ],
-  "boolean": true,
-  "color": "gold",
-  "null": null,
-  "number": 123,
-  "object": {
-    "a": "b",
-    "c": "d"
-  },
-  "string": "Hello World"
-}</pre>
+<p>JSON CONTENT EXAMPLE:
+  <pre>
+  {
+    "key": "value",
+    "key2": "value2",
+    "key3": {
+      "subkey1": "subvalue1"
+    },
+    "array": [ 1, 2, 3 ],
+    "boolean": true,
+    "color": "gold",
+    "null": null,
+    "number": 123,
+    "object": {
+      "a": "b",
+      "c": "d"
+    },
+    "string": "Hello World"
+  }</pre>
+</p>
 </details>
 
 #### d. Icing on the cake: adding extra information
@@ -220,8 +220,8 @@ sub-01\t34\tM</pre>
   ├── sub-01
   │   └── ses-mri
   │       ├── anat
-│ │       │   ├── sub-01_ses-mri_T1w.json
-│ │       │   └── sub-01_ses-mri_T1w.nii
+  │       │   ├── sub-01_ses-mri_T1w.json
+  │       │   └── sub-01_ses-mri_T1w.nii
   │       └── func
   ├── README
   ├── participants.tsv
@@ -249,7 +249,7 @@ sub-01\t34\tM</pre>
   ├── sub-01
   │   └── ses-mri
   │       ├── anat
-│ │       │   └── sub-01_ses-mri_T1w.nii
+  │       │   └── sub-01_ses-mri_T1w.nii
   │       └── func
   │           ├── sub-01_ses-mri_task-FaceSymmetry_run-1_bold.nii
   │           ├── sub-01_ses-mri_task-FaceSymmetry_run-1_events.tsv

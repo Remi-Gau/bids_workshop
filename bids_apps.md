@@ -1,3 +1,5 @@
+<a href=".."><button>home</button></a>
+
 # BIDS apps
 
 BIDS apps are software packages that take a BIDS dataset as input.
@@ -5,13 +7,13 @@ BIDS apps are software packages that take a BIDS dataset as input.
 They also have the same way to be called from the command line.
 
 ```bash
-app_name bids_dir output_dir analysis_level \
-         [app specific arguments and parameters]
+app_name    bids_dir output_dir analysis_level \
+            [app specific arguments and parameters]
 ```
 
-- `bids_dir`
-- `output_dir`
-- `analysis_level`:
+- `bids_dir`: directory containing the input dataset in BIDS format
+- `output_dir`: directory where the output files should be stored
+- `analysis_level`: this can usually be
   - `participant`
   - `group`
 
@@ -54,11 +56,11 @@ When running a BIDS app by using its docker image you need to call `docker run`
 in the following way:
 
 ```bash
-docker run \
-    [docker arguments and parameters] \
-    app_repository/app_name:version \
-    bids_dir output_dir analysis_level \
-    [app specific arguments and parameters]
+docker  run \
+        [docker arguments and parameters] \
+        app_repository/app_name:version \
+        bids_dir output_dir analysis_level \
+        [app specific arguments and parameters]
 ```
 
 Typical docker arguments and parameters are:
@@ -75,9 +77,9 @@ in the container to explore its content.
 For example, to start a bash terminal in the MRIQC container you can
 
 ```bash
-docker run -it --rm \
-    --entrypoint /bin/bash \
-    nipreps/mriqc:latest
+docker  run -it --rm \
+        --entrypoint /bin/bash \
+        nipreps/mriqc:latest
 ```
 
 Your terminal default prompt should have changed now show you something like
@@ -105,19 +107,19 @@ This would be done with then `-v` flag followed by
 For example:
 
 ```bash
-docker run -it --rm \
-    -v /path/to/bids_dataset:/bids_dataset \
-    app_repository/app_name:version \
-    /bids_dataset /output_dir participant
+docker  run -it --rm \
+        -v /path/to/bids_dataset:/bids_dataset \
+        app_repository/app_name:version \
+        /bids_dataset /output_dir participant
 ```
 
 Let's try again using the MRIQC image:
 
 ```bash
-docker run -it --rm \
-    --entrypoint /bin/bash \
-    -v ~/:/home/me \
-    nipreps/mriqc:latest
+docker  run -it --rm \
+        --entrypoint /bin/bash \
+        -v ~/:/home/me \
+        nipreps/mriqc:latest
 ```
 
 The `~/` is a shortcut for your "home" folder on your computer.
@@ -146,10 +148,10 @@ Exit the container by typing `exit`.
 Relaunch the MRIQC container:
 
 ```bash
-docker run -it --rm \
-    --entrypoint /bin/bash \
-    -v ~/:/home/me \
-    nipreps/mriqc:latest
+docker  run -it --rm \
+        --entrypoint /bin/bash \
+        -v ~/:/home/me \
+        nipreps/mriqc:latest
 ```
 
 Now try to create an empty test file in the `/home/me` folder using the touch
@@ -170,11 +172,11 @@ Exit the container by typing `exit` and reopen it with the following command
 with the `--user "$(id -u):$(id -g)"` parameter:
 
 ```bash
-docker run -it --rm \
-    --user "$(id -u):$(id -g)" \
-    --entrypoint /bin/bash \
-    -v ~/:/home/me \
-    nipreps/mriqc:latest
+docker  run -it --rm \
+        --user "$(id -u):$(id -g)" \
+        --entrypoint /bin/bash \
+        -v ~/:/home/me \
+        nipreps/mriqc:latest
 ```
 
 If you now try to create an empty test file in the `/home/me`:
@@ -190,12 +192,12 @@ You will see that you can edit AND save this file.
 Now we can start running a BIDS app using docker.
 
 ```bash
-docker run -it --rm \
-    -v /path/to/bids_dataset:/bids_dataset \
-    -v /path/to/output_dir:/output_dir \
-    -v /path/to/work_dir:/work_dir \
-    app_repository/app_name:version \
-    /bids_dataset /output_dir participant
+docker  run -it --rm \
+        -v /path/to/bids_dataset:/bids_dataset \
+        -v /path/to/output_dir:/output_dir \
+        -v /path/to/work_dir:/work_dir \
+        app_repository/app_name:version \
+        /bids_dataset /output_dir participant
 ```
 
 When running a BIDS app, you need to specify the input and output directories
