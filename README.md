@@ -1,6 +1,8 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7110398.svg)](https://doi.org/10.5281/zenodo.7110398)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
+<h2 id="TOC"> Table of content </h2>
+
 - [Content](#content)
   - ["Theory": The BIDS data management principles](#theory-the-bids-data-management-principles)
   - [BIDS conversion by hand](#bids-conversion-by-hand)
@@ -50,6 +52,10 @@ structured the way it is.
 Using automated BIDS converters is recommended, but using them too early can
 turn BIDS into a black box. So doing the conversion of one small dataset by hand
 helps better understand "what data/information goes where".
+
+<!-- TODO
+To do this part you can follow along the ["cookbook" page](./cookbook.md).
+-->
 
 ### Automated BIDS conversion
 
@@ -184,12 +190,10 @@ can get for free here: https://surfer.nmr.mgh.harvard.edu/registration.html.
 
 Those extensions are not needed but may help you when dealing with python code
 or json files in general.
-
-1. Open Visual studio code
-2. Press `Ctrl/Cmd+Shift+X` to open the extensions side bar.
-3. A new panel should appear on the side of the screen with a search bar. Search
-   for each of the following extensions and press `Install` for the first entry
-   that appears. (The author listed for all of these extensions should be
+>ars. (The author listed for all of these extensions should be
    `Microsoft`.)
    - `Python` (n.b., you will need to reload VSCode after installing this)
    - `json`
+
+<hr>
+<button><a href="#TOC">back to the top</a></button>

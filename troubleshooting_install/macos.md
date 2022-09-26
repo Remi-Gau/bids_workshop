@@ -1,4 +1,10 @@
-# MacOS
+<h1> MacOS </h1>
+
+<h2 id="TOC"> Table of content </h2>
+
+- [VSCode](#vscode)
+- [Python](#python)
+- [Docker](#docker)
 
 ## VSCode
 
@@ -56,3 +62,6 @@ rm ./Miniconda3-latest-MacOSX-x86_64.sh
 The above step-by-step Docker instructions are distilled from
 [here](https://docs.docker.com/docker-for-mac/install/). If you have questions
 during the installation procedure please check that link for potential answers!
+
+<hr>
+<button><a href="#TOC">back to the top</a></button>

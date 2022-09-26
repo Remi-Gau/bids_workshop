@@ -42,40 +42,44 @@ Get them fresh from your local ~~market~~:
 
 <details><summary> <b> 🧠 some <code>source</code> data to be converted into BIDS </b> </summary><br>
   <p>
-    We will work with the
-    <a href="https://www.fil.ion.ucl.ac.uk/spm/data/mmfaces/" target="_blank">
-    multi-modal face dataset from SPM
-    </a>.
+    For this workshop you can choose to work with several datasets that are adapted from some of the SPM12 tutorials.
+    You can download them from OSF by using one of the following links:
+  <ul>
+    <li> <a href="https://files.de-1.osf.io/v1/resources/3vufp/providers/osfstorage/63306417408a27124476308d/?zip=">
+      face repetition event-related design dataset</a> </li>
+    <li> <a href="https://files.de-1.osf.io/v1/resources/3vufp/providers/osfstorage/6330b4f76c2401129850ad40/?zip=">
+    auditory block design dataset</a> </li>
+    <li> <a href="https://files.de-1.osf.io/v1/resources/3vufp/providers/osfstorage/6330bb870b727211b12b0750/?zip=">
+    multimodal face dataset</a> </li>
+  </ul>
+    In the example below I will work with the multimodal face dataset.
   </p>
   <p>
-      Very often MRI source data will be in a DICOM format and will require to be converted.
-      Here the MRI data is in "3D" Nifti format <code>.hdr/.img</code> and
-      we will need to change that to a "4D" Nifti <code>.nii</code> format.
+    Very often MRI source data will be in a DICOM format and will require to be converted to nifti.
+    here the MRI data is already in "4D" Nifti format <code>.nii</code> format.
+    It is also gziped (<code>.nii.gz</code>) to save space.
   </p>
   <p>
-    This dataset contains EEG, MEG and fMRI data on the same subject within the same paradigm.
+    The dataset contains both structural data: should start with the letter <code>s</code>
+    and functional data: should start with the letter <code>f</code>.
+    It should also contain excel files that contain when each stimulus was presented to the subject.
+  </p>
+  <p>
+    This dataset originally contains EEG, MEG and fMRI data on the same subject within the same paradigm.
+    Here we are only working with the MRI data.
     We also extracted some of the information about the data from the SPM manual
-    and put it into the <code>source/README.md</code>.
+    and put it into the <code>README</code>.
   </p>
   <p>
-    Similarly when you have DICOM data, it is usually a good idea
+    When you have DICOM data, it is usually a good idea
     to keep the PDF of MRI acquisition parameters with your source data.
   </p>
 </details>
 
 <details><summary> <b> 🖋 a text editor </b> </summary><br>
-    Several common options top choose from:
-    <ul>
-        <li><a href="https://code.visualstudio.com" target="_blank">Visual Studio code</a></li>
-        <li>Notepad does not really count.</li>
-    </ul>
-</details>
-
-<details><summary> <b> ♻ some format conversion tools </b> </summary><br>
-    <p>
-      For the MRI data we will be using some of the SPM built-in functions
-      to convert Nifti files into the proper format.
-    </p>
+    A good choice is to use
+    <a href="https://code.visualstudio.com" target="_blank">Visual Studio code</a>
+    (Notepad does not really count).
 </details>
 
 <details><summary> <b> 📥 [OPTIONAL] BIDS validator </b> </summary><br>
@@ -88,30 +92,6 @@ Get them fresh from your local ~~market~~:
   See the full instruction <a href="https://www.npmjs.com/package/bids-validator#quickstart" target="_blank">here.</a>
 </details>
 
-<details>
-  <summary> <b>
-    <img  src="https://raw.githubusercontent.com/datalad/artwork/master/logos/logo_solo.svg"
-          height="14"
-          style="padding: 0; margin: 0"/>
-    [OPTIONAL] Datalad to version control your data
-  </b> </summary> <br>
-  <p>
-    You can follow the installation instruction in the
-    <a href="http://handbook.datalad.org/en/latest/intro/installation.html" target="_blank">
-      Datalad handbook.
-    </a>
-  </p>
-</details>
-
-<details><summary> <b> 🐳 [OPTIONAL] Docker </b> </summary><br>
-  <p>
-    Check the install instruction for your system
-    <a href="https://docs.docker.com/get-docker/" target="_blank">
-      here.
-    </a>
-  </p>
-</details>
-
 <br>
 
 ## Recipe
@@ -121,7 +101,6 @@ Get them fresh from your local ~~market~~:
 - Create a `raw` folder to host your BIDS data and inside it create:
 
   - a `sourcedata` folder and put your `source` data in it
-  - a `code/conversion` folder and put this `README.md` in it
   - a subject folder: `sub-01`
     - with session folder: `ses-mri`
       - with an `anat` folder for the structural MRI data
@@ -129,15 +108,7 @@ Get them fresh from your local ~~market~~:
 
 <details><summary> <b>By now you should have this.</b> </summary><br>
   <pre>
-  ├── code
-  │   └── conversion
   ├── sourcedata
-  │   ├── multimodal_fmri
-  │   │   └── fMRI
-  │   │       ├── Session1
-  │   │       └── Session2
-  │   └── multimodal_smri
-  │       └── sMRI
   └── sub-01
       └── ses-mri
           ├── anat
@@ -147,48 +118,10 @@ Get them fresh from your local ~~market~~:
 
 <br>
 
-<h3 id="starters">2. Starters: converting the anatomical MRI file</h3>
+### a. Cooking is not just about the taste, it is also about how things look: naming files
 
-- In Matlab launch SPM: `spm fmri`.
-- In SPM:
-
-  - use the SPM 3D to 4D module:
-    ```
-      Batch --> SPM --> Utils --> 3D to 4D File conversion
-    ```
-  - select the `*.img` file to convert
-  - keep track of what you did by saving the batch in `code/conversion`
-  - run the batch
-
-#### a. Cooking is not just about the taste, it is also about how things look: naming files
-
-- Move the `.nii` file you have just created into `sub-01/ses-mri/anat`.
+- Move the `.nii.gz` file you have just created into `sub-01/ses-mri/anat`.
 - Give this file a valid BIDS filename.
-
-<details><summary> ✅ Valid BIDS filenames </summary><br>
-  <ul>
-    <li>
-      BIDS filenames are composed of:
-      <ul>
-        <li><code>extension</code></li>
-        <li><code>suffix</code> preceded by a <code>_</code></li>
-        <li><code>entity-label</code> pairs separated by a <code>_</code></li>
-      </ul>
-    </li>
-    <li>
-      So a BIDS filename can look like: <code>entity1-label1_entity2-label2_suffix.extension</code>
-    </li>
-    <li>
-      <code>entities</code> and <code>labels</code> can only contain letters and / or numbers.
-    </li>
-    <li>
-      For a given suffix, some entities are <code>required</code> and some others are <code>[optional]</code>.
-    </li>
-    <li>
-      <code>entity-label</code> pairs pairs have a specific order in which they must appear in filename.
-    </li>
-  </ul>
-</details>
 
 In case you do not remember which suffix to use and which entities are required
 or optional, the BIDS specification has:
@@ -208,7 +141,7 @@ Try it directly in your
 - `README`
 - `dataset_description.json`
 
-You can get content for those files from:
+You can get template content for those files from:
 
 - from the [BIDS specification](https://bids-specification.readthedocs.io) (use
   the search bar)
@@ -223,14 +156,16 @@ You can get content for those files from:
 <details><summary> 🚨 About JSON files </summary><br>
 JSON files are text files to store <code>key-value</code> pairs.
 
-If your editor cannot help you format them properly, you can always use the
-<a href="https://jsoneditoronline.org/" target="_blank"> online editor.</a>
-
 <p>
 More information on how read and write JSON files is available on the
-<a  href="https://github.com/bids-standard/bids-starter-kit/wiki/Metadata-file-formats#json-files"
+<a  href="https://bids-standard.github.io/bids-starter-kit/folders_and_files/metadata.html#json-files"
     target="_blank">
-  BIDS stater kit.
+  BIDS stater kit
+</a>
+and also
+<a  href="https://bids-standard.github.io/stats-models/json_101.html"
+    target="_blank">
+  on the bids stats model website.
 </a>
 </p>
 
@@ -257,7 +192,7 @@ More information on how read and write JSON files is available on the
 
 #### d. Icing on the cake: adding extra information
 
-- Add `T1w.json` file. Use information from `source/README.md` to create it.
+- Add a `T1w.json` file. Use information from `README` to create it.
 - Add a participants `participants.tsv`. You can use excel or google sheet to
   create them.
 
@@ -281,7 +216,6 @@ sub-01\t34\tM</pre>
 
 <details><summary> <b>By now you should have this.</b> </summary><br>
   <pre>
-  ├── code
   ├── sourcedata
   ├── sub-01
   │   └── ses-mri
@@ -298,6 +232,38 @@ sub-01\t34\tM</pre>
 
 <br>
 
+<h3 id="main-course">3. Main course: converting the functional MRI files</h3>
+
+- Give the output files valid BIDS filenames. You will need to use `task` and
+  the `run` entities.
+- Use the BIDS validator and any eventual missing file (like `*_bold.json`
+  file).
+- Using the excel files, create `events.tsv` for each run.
+- Put the `events.tsv` files in the func folders and give them BIDS valid names.
+- Remove duplicate `json` files to make use of the
+  ["inheritance principle"](https://bids-specification.readthedocs.io/en/stable/02-common-principles.html#the-inheritance-principle)
+
+<details><summary> <b>By now you should have this.</b> </summary><br>
+  <pre>
+  ├── sourcedata
+  ├── sub-01
+  │   └── ses-mri
+  │       ├── anat
+│ │       │   └── sub-01_ses-mri_T1w.nii
+  │       └── func
+  │           ├── sub-01_ses-mri_task-FaceSymmetry_run-1_bold.nii
+  │           ├── sub-01_ses-mri_task-FaceSymmetry_run-1_events.tsv
+  │           ├── sub-01_ses-mri_task-FaceSymmetry_run-2_bold.nii
+  │           └── sub-01_ses-mri_task-FaceSymmetry_run-2_events.tsv
+  ├── README
+  ├── participants.tsv
+  ├── participants.json
+  ├── T1w.json
+  ├── task-FaceSymmetry_bold.json
+  └── dataset_description.json
+  </pre>
+</details>
+
 ## Useful links
 
 - [BIDS specification](https://bids-specification.readthedocs.io)
@@ -309,13 +275,4 @@ sub-01\t34\tM</pre>
 - [BIDS examples](https://github.com/bids-standard/bids-examples)
 
 <hr>
-
 <button><a href="#TOC">back to the top</a></button>
-
-
-<footer>
-    <hr>
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
-    </a>
-</footer>

@@ -1,4 +1,12 @@
-# Windows
+<h1> Windows </h1>
+
+<h2 id="TOC"> Table of content </h2>
+
+- [VSCode](#vscode)
+- [Python](#python)
+- [The hard way](#the-hard-way)
+   - [Windows Subsystem for Linux (WSL)](#windows-subsystem-for-linux-wsl)
+   - [Docker](#docker)
 
 ## VSCode
 
@@ -177,3 +185,6 @@ re-opening the "Docker Quickstart" application.
 [here](https://medium.com/@joaoh82/setting-up-docker-toolbox-for-windows-home-10-and-wsl-to-work-perfectly-2fd34ed41d51).
 If you have questions during the installation procedure please check those links
 for potential answers!)
+
+<hr>
+<button><a href="#TOC">back to the top</a></button>
