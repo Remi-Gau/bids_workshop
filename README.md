@@ -66,6 +66,10 @@ by hand. So learning to use a bids converters should be the next logical step.
 
 To wrap up it is good use BIDS applications on the dataset we have created.
 
+<!-- TODO
+To do this part you can follow along the ["bids_app" page](./bids_app.md).
+-->
+
 ## Notes
 
 This workshop is mostly geared for the MRI part of BIDS but many principles of
