@@ -1,3 +1,5 @@
+<a href="../bids_workshop"><button>home</button></a>
+
 <h1 style="width: 120%"> Preparing a BIDS dataset by hand and from scratch </h1>
 
 Adapted from the [BIDS cookbook](https://doi.org/10.5281/zenodo.7111042).

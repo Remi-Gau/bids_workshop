@@ -1,4 +1,4 @@
-<a href=".."><button>home</button></a>
+<a href="../bids_workshop"><button>home</button></a>
 
 # BIDS apps
 
