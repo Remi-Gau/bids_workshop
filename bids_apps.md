@@ -1,6 +1,18 @@
 <a href="../bids_workshop"><button>home</button></a>
 
-# BIDS apps
+<h1> BIDS apps </h1>
+
+Note that if you do not have a BIDS dataset at hand, you can use one of BIDS
+dataset from SPM12 tutorials.
+
+<h2 id="TOC"> Table of content </h2>
+
+- [Containerized BIDS apps: docker](#containerized-bids-apps-docker)
+        - ["Mapping" folders inside the container](#mapping-folders-inside-the-container)
+        - [Running a docker as non-root user](#running-a-docker-as-non-root-user)
+- [Running a BIDS app using docker](#running-a-bids-app-using-docker)
+- [App specific arguments and parameters](#app-specific-arguments-and-parameters)
+        - [MRIQC](#mriqc)
 
 BIDS apps are software packages that take a BIDS dataset as input.
 
@@ -19,6 +31,9 @@ app_name    bids_dir output_dir analysis_level \
 
 The list of existing BIDS apps is available here:
 https://bids-apps.neuroimaging.io/apps/
+
+Note that most BIDS apps will have a `--help` flag that you can use to get
+information about all the possible arguments and parameters that you can use.
 
 ## Containerized BIDS apps: docker
 
@@ -191,13 +206,96 @@ You will see that you can edit AND save this file.
 
 Now we can start running a BIDS app using docker.
 
+The general command would look like this:
+
 ```bash
 docker  run -it --rm \
+        --user "$(id -u):$(id -g)" \
         -v /path/to/bids_dataset:/bids_dataset \
         -v /path/to/output_dir:/output_dir \
-        -v /path/to/work_dir:/work_dir \
         app_repository/app_name:version \
+        /bids_dataset /output_dir analysis_level
+```
+
+Writing those commands can be a bit tedious, and getting all the paths right is
+usually the main source of errors.
+
+To help with this, it can help to always use the same folder structure to
+organize where you put your data and where you run your BIDS apps from.
+
+You for example use something like the following one that is very similar to the
+"YODA" structure recommended by the
+[datalad team](https://handbook.datalad.org/en/latest/basics/101-127-yoda.html#p1-one-thing-one-dataset).
+
+```bash
+├── code
+│   └── README.md
+├── inputs
+│   └── raw             # this is your BIDS dataset
+└── outputs
+```
+
+There is template for such folder in the [`template directory`](./template).
+
+In this case, if you are running commands from within the `code` folder, you
+would run a bids docker container like this by using relative paths:
+
+```bash
+docker  run -it --rm \
+        --user "$(id -u):$(id -g)" \
+        -v $PWD/../inputs/raw:/bids_dataset \
+        -v $PWD/../outputs:/output_dir \
+        app_repository/app_name:version \
+        /bids_dataset /output_dir analysis_level
+```
+
+Note that `$PWD` refers to a terminal varible that means 'Present Working
+Directory'.
+
+So to run MRIQC we would then do:
+
+```bash
+docker  run -it --rm \
+        --user "$(id -u):$(id -g)" \
+        -v $PWD/../inputs/raw:/bids_dataset \
+        -v $PWD/../outputs:/output_dir \
+        nipreps/mriqc:latest \
         /bids_dataset /output_dir participant
 ```
 
-When running a BIDS app, you need to specify the input and output directories
+## App specific arguments and parameters
+
+### MRIQC
+
+Check the MRIQC options either by using the `--help` flag or checking the
+[online documentation](https://mriqc.readthedocs.io/en/latest/running.html#command-line-interface).
+
+```bash
+docker  run -it --rm \
+        nipreps/mriqc:latest \
+        /bids_dataset /output_dir participant \
+        --help
+```
+
+Some of the most frequent options would will be using are:
+
+- `--modalities`: followed by the modality you want to analyze. For example:
+  `func fmap` if you want to analyse functional data and fieldmaps, but skip
+  anatomical data.
+
+- `--participant-labels`, `--run-id`, `--task-id`: followed by respectively the
+  subject labels, run index or task label you want to run.
+
+For example:
+
+```bash
+docker  run -it --rm \
+        --user "$(id -u):$(id -g)" \
+        -v $PWD/../inputs/raw:/bids_dataset \
+        -v $PWD/../outputs:/output_dir \
+        nipreps/mriqc:latest \
+        /bids_dataset /output_dir participant \
+        --participant-labels 01 \
+        --run-id 1 \
+        --task-id rest
+```

@@ -45,7 +45,7 @@ Remembering and following a rule is always easier when you understand why the
 rule was put in place: this first part explains some of the reasons why BIDS is
 structured the way it is.
 
-<!-- TODO add link to slides put on OSF -->
+Slides are available [here](https://osf.io/zxp9e).
 
 ### BIDS conversion by hand
 
@@ -53,9 +53,8 @@ Using automated BIDS converters is recommended, but using them too early can
 turn BIDS into a black box. So doing the conversion of one small dataset by hand
 helps better understand "what data/information goes where".
 
-<!-- TODO
+
 To do this part you can follow along the ["cookbook" page](./cookbook.md).
--->
 
 ### Automated BIDS conversion
 
@@ -66,9 +65,8 @@ by hand. So learning to use a bids converters should be the next logical step.
 
 To wrap up it is good use BIDS applications on the dataset we have created.
 
-<!-- TODO
-To do this part you can follow along the ["bids_app" page](./bids_app.md).
--->
+To do this part you can follow along the ["bids_app" page](./bids_apps.md).
+
 
 ## Notes
 
