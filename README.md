@@ -130,7 +130,7 @@ your system (32 vs 64 bit, Apple M1 vs Intel...)
 ### Dcm2niix
 
 Install the DICOM to Nifti converter:
-[Dcm2niix](https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage#Download)
+[Dcm2niix](https://github.com/rordenlab/dcm2niix#install)
 
 If installing with
 [the correct installer for your operating system](https://github.com/rordenlab/dcm2niix/releases)
@@ -149,6 +149,36 @@ and type:
 ```bash
 pip install bidscoin
 ```
+
+BIDScoin will need to be able to find the `dcm2niix` executable that you
+installed on your computer.
+
+To test this you can run the following command in a terminal:
+
+```bash
+bidseditor .
+```
+
+This will ask you to open a `bidsmap.yml` file, you can click `cancel` to load
+the default values. You can then go to the `Options` tab where there is a
+`dcm2niix2bids - plugin` section.
+
+The `command` part of this section refers to what command bidscoin must run to
+use `dcm2niix`.
+
+This should be the path to the `dcm2niix` executable on your computer.
+
+- For example on Windows: `"C:\Program Files\dcm2niix\bin\dcm2niix.exe"`
+- For Linux or Mac: `/usr/local/bin/dcm2niix`
+
+On Mac or Linux, you can check the path to `dcm2niix` by running the following:
+
+```bash
+which dcm2niix
+```
+
+More details on the
+[bidscoin documentation](https://bidscoin.readthedocs.io/en/stable/options.html#dcm2niix2bids-plugin).
 
 ### Docker
 
@@ -190,10 +220,11 @@ can get for free here: https://surfer.nmr.mgh.harvard.edu/registration.html.
 
 Those extensions are not needed but may help you when dealing with python code
 or json files in general.
->ars. (The author listed for all of these extensions should be
-   `Microsoft`.)
-   - `Python` (n.b., you will need to reload VSCode after installing this)
-   - `json`
+
+> ars. (The author listed for all of these extensions should be `Microsoft`.)
+
+- `Python` (n.b., you will need to reload VSCode after installing this)
+- `json`
 
 <hr>
 <button><a href="#TOC">back to the top</a></button>
