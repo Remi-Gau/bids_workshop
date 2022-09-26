@@ -1,0 +1,13 @@
+*.zip
+*.nii*
+*.json
+*.tsv
+
+template/outputs/mriqc
+template/outputs/fmriprep
+template/outputs/tmp
+
+license.txt
+.bidsignore
+CHANGES
+README

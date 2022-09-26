@@ -2,19 +2,16 @@
 
 <h1> BIDS apps </h1>
 
-Note that if you do not have a BIDS dataset at hand, you can use one of BIDS
-dataset from SPM12 tutorials.
+Note that if you do not have a BIDS dataset at hand, you can use
+[one of BIDS dataset from SPM12 tutorials](https://files.de-1.osf.io/v1/resources/3vufp/providers/osfstorage/6239d943938b48080c97b6d4/?zip=).
 
 <h2 id="TOC"> Table of content </h2>
 
-- [Containerized BIDS apps: docker](#containerized-bids-apps-docker)
-        - ["Mapping" folders inside the container](#mapping-folders-inside-the-container)
-        - [Running a docker as non-root user](#running-a-docker-as-non-root-user)
-- [Running a BIDS app using docker](#running-a-bids-app-using-docker)
-- [App specific arguments and parameters](#app-specific-arguments-and-parameters)
-        - [MRIQC](#mriqc)
+<!-- TODO -->
 
-BIDS apps are software packages that take a BIDS dataset as input.
+BIDS apps are software packages that take a BIDS dataset as input. For a longer
+definition, see the
+[nipreps documentation](https://www.nipreps.org/apps/framework/#what-is-a-bids-app).
 
 They also have the same way to be called from the command line.
 
@@ -41,7 +38,7 @@ To make them easier to install most BIDS apps are "containerized" using Docker.
 
 You can learn more about containers, on
 [the Turing way](https://the-turing-way.netlify.app/reproducible-research/renv/renv-containers.html)
-jupyter book.
+jupyter book and on [the nipreps website](https://www.nipreps.org/apps/docker/).
 
 You can then download the app by "pulling its image" by running a command like:
 
@@ -64,8 +61,10 @@ This can give an output that looks like this:
 REPOSITORY         TAG       IMAGE ID       CREATED         SIZE
 nipreps/fmriprep   latest    bff6645c2142   12 days ago     12GB
 nipreps/mriqc      latest    7ed42219c6f9   4 weeks ago     15.6GB
-hello-world        latest    feb5d9fea6a5   12 months ago   13.3kB
 ```
+
+This shows that we have MRIQC which is a Quality Control pipeline for MRI data
+and FMRIprep which is a preprocessing pipeline for fMRI data.
 
 When running a BIDS app by using its docker image you need to call `docker run`
 in the following way:
@@ -237,7 +236,7 @@ You for example use something like the following one that is very similar to the
 
 There is template for such folder in the [`template directory`](./template).
 
-In this case, if you are running commands from within the `code` folder, you
+In this case, **if you are running commands from within the `code` folder**, you
 would run a bids docker container like this by using relative paths:
 
 ```bash
@@ -258,7 +257,7 @@ So to run MRIQC we would then do:
 docker  run -it --rm \
         --user "$(id -u):$(id -g)" \
         -v $PWD/../inputs/raw:/bids_dataset \
-        -v $PWD/../outputs:/output_dir \
+        -v $PWD/../outputs/mriqc:/output_dir \
         nipreps/mriqc:latest \
         /bids_dataset /output_dir participant
 ```
@@ -292,10 +291,102 @@ For example:
 docker  run -it --rm \
         --user "$(id -u):$(id -g)" \
         -v $PWD/../inputs/raw:/bids_dataset \
-        -v $PWD/../outputs:/output_dir \
+        -v $PWD/../outputs/mriqc:/output_dir \
         nipreps/mriqc:latest \
         /bids_dataset /output_dir participant \
         --participant-labels 01 \
-        --run-id 1 \
-        --task-id rest
+        --task-id auditory
 ```
+
+If you find that MRIQC is "too quiet" and you are afraid that something has
+crashed you can always run it in verbose mode by using the `--verbose` or `-v`
+flag
+
+```bash
+docker  run -it --rm \
+        --user "$(id -u):$(id -g)" \
+        -v $PWD/../inputs/raw:/bids_dataset \
+        -v $PWD/../outputs/mriqc:/output_dir \
+        nipreps/mriqc:latest \
+        /bids_dataset /output_dir participant \
+        --verbose \
+        --participant-labels 01 \
+        --task-id auditory
+```
+
+<!-- ETA for this to run 10 minutes -->
+
+MRIQC outputs follows filenaming patterns and for each file it provides you with
+a nice [HTML report](https://mriqc.readthedocs.io/en/latest/reports.html) that
+you can open in your browser.
+
+Specific [quality metrics](https://mriqc.readthedocs.io/en/latest/measures.html)
+are also provided in a json file.
+
+This would be an example output you can get after running MRIQC.
+
+```bash
+├── logs
+├── sub-01
+│   ├── anat
+│   │   └── sub-01_T1w.json
+│   └── func
+│       └── sub-01_task-auditory_bold.json
+├── README.md
+├── dataset_description.json
+├── sub-01_T1w.html
+└── sub-01_task-auditory_bold.html
+```
+
+### fMRIPrep
+
+Running fMRIprep is very similar to running MRIQC.
+
+Once again either use the `--help` flag or check the
+[online documentation](https://fmriprep.org/en/stable/usage.html#command-line-arguments)
+to find out more about the options.
+
+One of the important options for fMRIprep is the `--fs-license-file` option that
+you use to specify where to find the Freesurfer license file. More information
+in
+[the online documentation](https://fmriprep.org/en/stable/usage.html#the-freesurfer-license).
+
+Here what we can do is put the license in the code folder and then mount the
+code folder in the container.
+
+One major difference with MRIQC is that fMRIPrep takes much longer to run
+because it must run the entire Freesurfer processing pipeline (usually around 6
+hours).
+
+Because running fMRIprep takes so long it can be a good thing to keep the
+intermediate results that fmriprep generates so you don't start from 0 if it
+crashes.
+
+To do this we can mount a temporary folder into the container and define it as a
+working directory for fMRIprep to use by making use of the `-w`
+parameter.
+
+So we can launch the following command **from within the `code` folder**.
+
+```bash
+docker  run -it --rm \
+        --user "$(id -u):$(id -g)" \
+        -v $PWD:/code \
+        -v $PWD/../inputs/raw:/bids_dataset \
+        -v $PWD/../outputs/fmriprep:/output_dir \
+        -v $PWD/../outputs/tmp:/tmp \
+        nipreps/fmriprep:latest \
+        /bids_dataset /output_dir participant \
+        --verbose \
+        --participant-label 01 \
+        --task-id auditory \
+        --fs-license-file /code/license.txt \
+        --work-dir /tmp
+```
+
+fMRIprep outputs is also BIDS compliant dataset and you can find extensive
+additional information about the output in
+[the documentation](https://fmriprep.org/en/stable/outputs.html).
+
+The `fmriprep/logs/CITATION.md` file contains a standardised method section that
+describre the preprocessing that you should use when publishing your results.

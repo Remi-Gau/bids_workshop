@@ -53,7 +53,6 @@ Using automated BIDS converters is recommended, but using them too early can
 turn BIDS into a black box. So doing the conversion of one small dataset by hand
 helps better understand "what data/information goes where".
 
-
 To do this part you can follow along the ["cookbook" page](./cookbook.md).
 
 ### Automated BIDS conversion
@@ -66,7 +65,6 @@ by hand. So learning to use a bids converters should be the next logical step.
 To wrap up it is good use BIDS applications on the dataset we have created.
 
 To do this part you can follow along the ["bids_app" page](./bids_apps.md).
-
 
 ## Notes
 
@@ -165,7 +163,10 @@ This will ask you to open a `bidsmap.yml` file, you can click `cancel` to load
 the default values. You can then go to the `Options` tab where there is a
 `dcm2niix2bids - plugin` section.
 
-<img src="./images/bidscoin_dcm2nii.png" alt="bidscoin_dcm2nii" width="80%"/>
+<img  src="./images/bidscoin_dcm2nii.png"
+      alt="bidscoin_dcm2nii"
+      width="80%"
+      style="padding-left: 10%; border-color: black "/>
 
 The `command` part of this section refers to what command bidscoin must run to
 use `dcm2niix`.
