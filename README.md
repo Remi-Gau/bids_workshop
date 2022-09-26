@@ -163,6 +163,8 @@ This will ask you to open a `bidsmap.yml` file, you can click `cancel` to load
 the default values. You can then go to the `Options` tab where there is a
 `dcm2niix2bids - plugin` section.
 
+<img src="./images/bidscoin_dcm2nii.png" alt="bidscoin_dcm2nii" width="80%"/>
+
 The `command` part of this section refers to what command bidscoin must run to
 use `dcm2niix`.
 
