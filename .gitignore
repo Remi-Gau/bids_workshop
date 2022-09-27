@@ -3,6 +3,10 @@
 *.json
 *.tsv
 
+raw
+sourcedata
+bidscointutorial
+
 template/outputs/mriqc
 template/outputs/fmriprep
 template/outputs/tmp
