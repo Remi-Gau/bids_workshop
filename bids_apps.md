@@ -369,8 +369,7 @@ intermediate results that fmriprep generates so you don't start from 0 if it
 crashes.
 
 To do this we can mount a temporary folder into the container and define it as a
-working directory for fMRIprep to use by making use of the `-w`
-parameter.
+working directory for fMRIprep to use by making use of the `-w` parameter.
 
 So we can launch the following command **from within the `code` folder**.
 
@@ -389,6 +388,9 @@ docker  run -it --rm \
         --fs-license-file /code/license.txt \
         --work-dir /tmp
 ```
+
+If you want to see what the output would look like, you can download an example
+of the output of fMRIPrep [here](https://osf.io/download/vufjs/).
 
 fMRIprep outputs is also BIDS compliant dataset and you can find extensive
 additional information about the output in
