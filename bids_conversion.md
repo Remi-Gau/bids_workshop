@@ -1,7 +1,32 @@
-# bidscoin tutorial
+<a href="../bids_workshop"><button>home</button></a>
+
+<h1> bidscoin tutorial </h1>
 
 If you have set up a special python environment for bidscoin, activate it. For
 example with `conda activate bidscoin`.
+
+<h2 id="TOC"> Table of content </h2>
+
+- [DEMO 1: using bidscoin data](#demo-1-using-bidscoin-data)
+  - [Get the data.](#get-the-data)
+  - [Reorganize the DICOM data](#reorganize-the-dicom-data)
+  - [Read DICOM metadata and initialize the mapping](#read-dicom-metadata-and-initialize-the-mapping)
+  - [Fieldmaps](#fieldmaps)
+  - [bidsmap.yml](#bidsmapyml)
+  - [Run the conversion](#run-the-conversion)
+  - [Post-processing](#post-processing)
+  - [Validate the results](#validate-the-results)
+  - [Inspect file types we have not seen before](#inspect-file-types-we-have-not-seen-before)
+- [DEMO 2: using the dcm2bids test data](#demo-2-using-the-dcm2bids-test-data)
+  - [Get the data](#get-the-data-1)
+    - [Option 1](#option-1)
+    - [Option 2](#option-2)
+    - [Option 3](#option-3)
+  - [Dataset description](#dataset-description)
+  - [Sort DICOMS](#sort-dicoms)
+  - [Collect DICOM info](#collect-dicom-info)
+  - [Create the bidsmap](#create-the-bidsmap)
+  - [Run the conversion](#run-the-conversion-1)
 
 ## DEMO 1: using bidscoin data
 
@@ -118,6 +143,10 @@ Use the [BIDS validator](https://bids-standard.github.io/bids-validator/).
 
 ## DEMO 2: using the dcm2bids test data
 
+This part was adapted from the
+[dcm2bids converter tutorial](https://unfmontreal.github.io/Dcm2Bids/docs/tutorial/first-steps/)
+to reuse their demo data.
+
 ### Get the data
 
 #### Option 1
@@ -148,7 +177,8 @@ git clone https://github.com/neurolabusc/dcm_qa_nih/ sourcedata/dcm_qa_nih
 
 The data you want to focus on are in the `In` folder.
 
-You have data coming from a Siemens scanner and data coming from a General Electrics scanner.
+You have data coming from a Siemens scanner and data coming from a General
+Electrics scanner.
 
 ### Sort DICOMS
 
@@ -162,7 +192,7 @@ Let's also rename the folders and add the the prefix `sub-`.
 - `20180918GE` -> `sub-GE`
 - `20180918Si` -> `sub-Si`
 
-## Collect DICOM info
+### Collect DICOM info
 
 ```bash
 rawmapper sourcedata/dcm_qa_nih/In -f "SeriesDescription"
@@ -172,7 +202,7 @@ You are mostly interested in those sequences:
 
 - 004_In_DCM2NIIX_regression_test_20180918114023 003_In_EPI_PE=AP_2018091812123
 
-  - `SeriesDescription`: "Axial EPI-FMRI (Interleaved I to S)*"
+  - `SeriesDescription`: "Axial EPI-FMRI (Interleaved I to S)\*"
   - will become a functional file with the task label `rest`
 
 - 004_In_EPI_PE=PA_2018091812123
@@ -188,3 +218,6 @@ bidsmapper sourcedata/dcm_qa_nih/In raw
 ```bash
 bidscoiner sourcedata/dcm_qa_nih/In raw -p GE Si
 ```
+
+<hr>
+<button><a href="#TOC">back to the top</a></button>

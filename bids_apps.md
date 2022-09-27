@@ -7,7 +7,13 @@ Note that if you do not have a BIDS dataset at hand, you can use
 
 <h2 id="TOC"> Table of content </h2>
 
-<!-- TODO -->
+- [Containerized BIDS apps: docker](#containerized-bids-apps-docker)
+        - ["Mapping" folders inside the container](#mapping-folders-inside-the-container)
+        - [Running a docker as non-root user](#running-a-docker-as-non-root-user)
+- [Running a BIDS app using docker](#running-a-bids-app-using-docker)
+- [App specific arguments and parameters](#app-specific-arguments-and-parameters)
+        - [MRIQC](#mriqc)
+        - [fMRIPrep](#fmriprep)
 
 BIDS apps are software packages that take a BIDS dataset as input. For a longer
 definition, see the
@@ -390,3 +396,6 @@ additional information about the output in
 
 The `fmriprep/logs/CITATION.md` file contains a standardised method section that
 describre the preprocessing that you should use when publishing your results.
+
+<hr>
+<button><a href="#TOC">back to the top</a></button>

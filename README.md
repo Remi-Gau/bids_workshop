@@ -60,6 +60,11 @@ To do this part you can follow along the ["cookbook" page](./cookbook.md).
 Converting large numbers files quickly becomes impractical and error prone when
 by hand. So learning to use a bids converters should be the next logical step.
 
+Here are a few [intro slides](https://osf.io/zcfne).
+
+To do this part you can follow along the
+["bids_conversion" page](./bids_conversion.md).
+
 ### Using BIDS apps
 
 To wrap up it is good use BIDS applications on the dataset we have created.
